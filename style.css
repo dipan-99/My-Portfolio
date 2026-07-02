@@ -1153,63 +1153,68 @@ html {
     color: white;
     user-select: none;
 }
-@media (max-width: 767px) {
-    .logo-container {
-        padding: 5px 0;
-    }
-    .logo {
-        height: 50px;
-        width: 50px;
-    }
-    .initials {
-        height: 38px;
-        width: 38px;
-        left: 2px;
-        top: 6px;
-    }
-    .logo-text {
-        font-size: 20px;
-        margin-left: 10px;
-    }
-    .nav-items {
-        gap: 10px;
-    }
-    .nav-items a {
-        font-size: 15px;
-    }
-    .nav-button {
-        height: 40px;
-        max-width: 200px;
-    }
-    .nav-button a{
-        font-size: 14px;
-    }
+/* ===== HAMBURGER MENU (hidden on desktop) ===== */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 100;
+    flex-direction: column;
+    gap: 5px;
 }
+.hamburger-line {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ===== TABLET BREAKPOINT (≤1199px) ===== */
 @media (max-width: 1199px) {
+    /* --- Fluid containers --- */
     .navbar,
     .hero-section,
     .about,
     .project,
     .contact-conatiner,
+    .blog,
     .footer-1,
     .footer-bottom {
-        width: 95%;
+        width: 92%;
         max-width: 1100px;
         margin-left: auto;
         margin-right: auto;
     }
+
+    /* --- Hero --- */
     .hero-section {
         flex-direction: column;
         gap: 3rem;
         text-align: center;
         padding: 0 1rem;
     }
-
     .hero-section-left {
         align-items: center;
     }
-
-    .hero-section-heading-1,
+    .hero-section-heading-1 {
+        width: 100%;
+        max-width: 600px;
+        padding-left: 0;
+        text-align: center;
+    }
     .hero-section-description {
         width: 100%;
         max-width: 600px;
@@ -1219,13 +1224,16 @@ html {
     .hero-btn {
         width: 100%;
         max-width: 500px;
-        justify-content: space-around;
+        justify-content: center;
+        gap: 20px;
     }
+
+    /* --- About --- */
     .about {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 80px 0;
+        padding: 80px 20px;
     }
     .about-right {
         align-items: center;
@@ -1250,42 +1258,45 @@ html {
         justify-content: space-around;
         gap: 2rem;
     }
+
+    /* --- Projects --- */
     .project-intro-1 {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         gap: 20px;
     }
     .view-btn-1 {
-        width: 300px;
+        width: 280px;
         height: 4rem;
     }
     .view-3 {
         height: 3.5rem;
-        width: 180px;
+        width: 170px;
     }
     .view-4 {
         height: 3rem;
         width: 3rem;
     }
     .project-card {
-        grid-template-columns: 1fr;
-        row-gap: 40px;
+        grid-template-columns: repeat(2, 1fr);
         height: auto;
+        column-gap: 20px;
+        row-gap: 30px;
     }
     .project-card-1 {
         width: 100%;
-        max-width: 600px;
         height: auto;
-        margin: auto;
     }
-    .card-img {
+    .card-img,
+    .card-img-2,
+    .card-img-3,
+    .card-img-4 {
         width: 100%;
-        height: 250px;
+        height: 200px;
         background-position: center;
     }
     .card-descrip-n-arw {
         width: 100%;
-        padding-right: 15px;
     }
     .card-descrip {
         width: auto;
@@ -1293,9 +1304,12 @@ html {
     }
     .card-details {
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: 8px;
         margin: 10px 0;
     }
+
+    /* --- Contact --- */
     .contact-conatiner {
         display: flex;
         flex-direction: column;
@@ -1305,7 +1319,7 @@ html {
     .contact-left,
     .contact-right {
         width: 100%;
-        max-width: 600px;
+        max-width: 650px;
         padding: 0 10px;
     }
     .contact-intro-heading,
@@ -1313,22 +1327,23 @@ html {
         width: 100%;
     }
     .contact-info {
-        grid-template-columns: 70px 1fr;
+        grid-template-columns: 60px 1fr;
         max-width: 450px;
         margin: 40px auto 0 auto;
         text-align: left;
     }
     .contact-form {
         width: 100%;
-        max-width: 700px;
+        max-width: 650px;
         height: auto;
     }
     .contact-sub-btn {
         grid-column-start: auto;
         grid-column-end: auto;
     }
+
+    /* --- Blog --- */
     .blog {
-        width: 95%;
         padding: 50px 0;
     }
     .blog-intro {
@@ -1337,93 +1352,148 @@ html {
     .blog-intro-heading {
         font-size: 36px;
     }
+    .blog-intro-1 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
     .blog-card {
-        grid-template-columns: 1fr;
-        row-gap: 40px;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 30px;
+        column-gap: 20px;
         margin-top: 40px;
-        justify-content: center;
     }
     .blog-card-1 {
-        max-width: 450px;
+        max-width: 100%;
         height: auto;
-        margin: auto;
     }
     .blog-card-1 .card-img {
         width: 100%;
     }
     .blog-card-1 .card-details {
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: 8px;
     }
     .blog-card-1 .card-descrip {
-        width: 70%;
+        width: 100%;
     }
     .blog-card-1 .card-descrip-n-arw {
         width: 100%;
-        padding-right: 15px;
     }
+
+    /* --- Footer --- */
     .footer-top {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 20px;
     }
     .footer-heading {
         width: 100%;
-        margin-bottom: 20px;
     }
     .footer-mid {
         flex-wrap: wrap;
         gap: 30px;
         justify-content: space-between;
     }
-    .footer-mid-part-1, .footer-mid-part-2, .footer-mid-part-3, .footer-mid-part-4 {
+    .footer-mid-part-1,
+    .footer-mid-part-2,
+    .footer-mid-part-3,
+    .footer-mid-part-4 {
         width: 45%;
-        max-width: none;
     }
     .footer-mid-part-1-icons {
-        justify-content: space-around;
+        justify-content: flex-start;
+        gap: 12px;
         width: 100%;
     }
 }
+
+/* ===== MOBILE BREAKPOINT (≤767px) ===== */
 @media (max-width: 767px) {
+    /* --- Fluid containers --- */
     .navbar,
     .hero-section,
     .about,
     .project,
     .contact-conatiner,
+    .blog,
     .footer-1,
     .footer-bottom {
         width: 90%;
-        padding: 0 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    /* --- Hamburger nav --- */
+    .hamburger {
+        display: flex;
     }
     .navbar {
-        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
         align-items: center;
-        padding: 20px;
+        padding: 15px 20px;
         border-radius: 20px;
-        gap: 20px;
+        gap: 0;
     }
     .nav-items {
+        display: none;
         width: 100%;
         flex-direction: column;
         gap: 15px;
+        text-align: center;
+        padding: 20px 0 10px 0;
+        order: 3;
+    }
+    .nav-items.open {
+        display: flex;
     }
     .nav-items a {
         font-size: 16px;
     }
     .nav-button {
+        display: none;
         width: 100%;
-        max-width: 250px;
-        height: 50px;
+        max-width: 200px;
+        height: 45px;
+        margin: 0 auto;
+        order: 4;
     }
+    .nav-button.open {
+        display: flex;
+    }
+    .nav-button a {
+        font-size: 14px;
+    }
+    .logo-container {
+        padding: 5px 0;
+    }
+    .logo {
+        height: 50px;
+        width: 50px;
+    }
+    .initials {
+        height: 38px;
+        width: 38px;
+        left: 2px;
+        top: 6px;
+    }
+    .logo-text {
+        font-size: 20px;
+        margin-left: 10px;
+    }
+
+    /* --- Hero --- */
     .hero-section {
-        margin: 4rem auto 2rem auto;
+        margin: 3rem auto 2rem auto;
     }
     .hero-section-heading-1 {
-        font-size: 30px;
+        font-size: 28px;
     }
     .hero-section-description {
-        font-size: 14px;
+        font-size: 13px;
         padding: 0;
     }
     .hero-btn {
@@ -1432,9 +1502,10 @@ html {
         width: 100%;
         gap: 15px;
     }
-    .view-btn, .hire-btn {
+    .view-btn,
+    .hire-btn {
         width: 100%;
-        max-width: 300px;
+        max-width: 280px;
         height: 4rem;
         margin: 0;
     }
@@ -1447,110 +1518,233 @@ html {
         width: 3rem;
     }
     .user img {
-        max-width: 90%;
+        max-width: 80%;
         height: auto;
     }
+
+    /* --- Design bar --- */
+    .design-1 {
+        width: 100%;
+    }
+
+    /* --- About --- */
     .about {
-        padding: 50px 0;
+        padding: 50px 10px;
     }
     .about-img {
-        width: 250px;
-        height: 250px;
+        width: 220px;
+        height: 220px;
     }
     .intro-heading {
-        font-size: 30px;
+        font-size: 28px;
     }
     .count {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 20px;
+    }
+    .count-project,
+    .count-industry,
+    .count-years {
+        text-align: center;
     }
     .cv-n-sign {
         flex-direction: column;
         align-items: center;
         gap: 20px;
+        margin-top: 30px;
     }
     .cv {
-        width: 15rem;
+        width: 14rem;
     }
     .sign {
-        font-size: 24px;
+        font-size: 22px;
     }
+
+    /* --- Projects --- */
     .project-intro-heading {
-        font-size: 30px;
+        font-size: 28px;
+    }
+    .project-card {
+        grid-template-columns: 1fr;
+        row-gap: 25px;
     }
     .project-card-1 {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
         padding: 15px;
+    }
+    .card-img,
+    .card-img-2,
+    .card-img-3,
+    .card-img-4 {
+        width: 100%;
+        height: 180px;
     }
     .card-details {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
+        gap: 8px;
     }
-    .blog-card-1 .card-details {
-        margin: 10px 0;
+    .card-details-1,
+    .card-details-2,
+    .card-details-3 {
+        width: auto;
+        padding: 0 15px;
+        font-size: 13px;
+        height: 2.5rem;
+    }
+
+    /* --- Contact --- */
+    .contact-intro-heading {
+        font-size: 28px;
+        width: 100%;
+    }
+    .contact-txt {
+        width: 100%;
+        font-size: 15px;
+    }
+    .contact-info {
+        grid-template-columns: 45px 1fr;
+        max-width: 100%;
+        margin-top: 25px;
+    }
+    .ph-icon,
+    .mail-icon,
+    .addr-icon {
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+    #ph-icn,
+    #mail-icn,
+    #addr-icn {
+        scale: 1.2;
+    }
+    .ph-txt,
+    .mail-txt,
+    .addr-txt {
+        font-size: 15px;
+        word-break: break-word;
+    }
+    .contact-form {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        height: auto;
+        width: 100%;
+    }
+    .contact-form-1,
+    .contact-form-2,
+    .contact-form-3,
+    .contact-form-4,
+    .contact-form-5 {
+        grid-column: 1 / -1;
+        padding: 8px 0;
+    }
+    .contact-form-5 {
+        grid-row: auto;
+    }
+    .contact-btn {
+        width: 100%;
+        max-width: 240px;
+    }
+
+    /* --- Blog --- */
+    .blog-intro-heading {
+        font-size: 28px;
+    }
+    .blog-card {
+        grid-template-columns: 1fr;
+        row-gap: 25px;
+    }
+    .blog-card-1 {
+        max-width: 100%;
+        height: auto;
     }
     .blog-card-1 .card-descrip-n-arw {
         flex-direction: column;
         align-items: flex-start;
     }
     .blog-card-1 .arw {
-        margin-top: 15px;
+        margin-top: 12px;
     }
-    .contact-intro-heading {
-        font-size: 30px;
-        width: 100%;
-    }
-    .contact-txt {
-        width: 100%;
-    }
-    .contact-info {
-        grid-template-columns: 50px 1fr;
-        max-width: 100%;
-        margin-top: 30px;
-    }
-    .ph-icon, .mail-icon, .addr-icon {
-        width: 3rem;
-        height: 3rem;
-    }
-    .ph-txt, .mail-txt, .addr-txt {
-        font-size: 18px;
-        align-items: flex-start;
-    }
-    .contact-form {
-        grid-template-columns: 1fr;
-        height: auto;
-    }
-    .contact-form-1, .contact-form-2, .contact-form-3, .contact-form-4, .contact-form-5 {
-        grid-column-start: 1;
-        grid-column-end: 2;
-        padding: 10px;
-    }
-    .contact-btn {
-        width: 100%;
-        max-width: 250px;
-    }
+
+    /* --- Footer --- */
     .footer-heading {
-        font-size: 30px;
+        font-size: 28px;
         width: 100%;
     }
     .footer-mid {
         flex-direction: column;
         gap: 30px;
     }
-    .footer-mid-part-1, .footer-mid-part-2, .footer-mid-part-3, .footer-mid-part-4 {
+    .footer-mid-part-1,
+    .footer-mid-part-2,
+    .footer-mid-part-3,
+    .footer-mid-part-4 {
         width: 100%;
-        max-width: 350px;
-        margin: auto;
+        max-width: 100%;
+    }
+    .footer-mid-part-2,
+    .footer-mid-part-3 {
+        height: auto;
+        gap: 12px;
+        padding-bottom: 0;
+    }
+    .footer-mid-part-1-icons {
+        justify-content: flex-start;
+        gap: 12px;
+        width: 100%;
     }
     .footer-bottom {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 15px;
+        gap: 12px;
     }
-    .footer-bottom-part-1, .footer-bottom-part-2 {
+    .footer-bottom-part-1,
+    .footer-bottom-part-2 {
+        font-size: 13px;
+    }
+}
+
+/* ===== SMALL MOBILE (≤480px) ===== */
+@media (max-width: 480px) {
+    .hero-section-heading-1 {
+        font-size: 24px;
+    }
+    .hero-section-description {
+        font-size: 12px;
+    }
+    .intro-heading {
+        font-size: 24px;
+    }
+    .about-img {
+        width: 180px;
+        height: 180px;
+    }
+    .count-project1,
+    .count-industry1,
+    .count-years1 {
+        font-size: 30px;
+    }
+    .count-project2,
+    .count-industry2,
+    .count-years2 {
         font-size: 14px;
+    }
+    .project-intro-heading,
+    .blog-intro-heading {
+        font-size: 24px;
+    }
+    .contact-intro-heading,
+    .footer-heading {
+        font-size: 24px;
+    }
+    .ph-txt,
+    .mail-txt,
+    .addr-txt {
+        font-size: 13px;
     }
 }
 @keyframes slideInLeft {

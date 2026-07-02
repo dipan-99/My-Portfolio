@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <div class=".wrapper">
+    <div class="wrapper">
 
         <header class="navbar">
             <section class="logo-container">
@@ -20,6 +20,12 @@
                     <span class="logo-text1">.</span>
                 </div>
             </section>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
 
             <section class="nav-items" id="nav">
                 <div><a href="#nav">Home</a></div>
@@ -652,6 +658,27 @@
         </footer>
 
     </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navItems = document.querySelector('.nav-items');
+        const navButton = document.querySelector('.nav-button');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navItems.classList.toggle('open');
+            navButton.classList.toggle('open');
+        });
+
+        // Close menu when a nav link is clicked
+        document.querySelectorAll('.nav-items a, .nav-button a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navItems.classList.remove('open');
+                navButton.classList.remove('open');
+            });
+        });
+    </script>
 
 </body>
 </html>
