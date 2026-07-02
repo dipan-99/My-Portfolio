@@ -225,7 +225,7 @@ html {
     justify-content: center;
     align-items: center;
     font-weight: 800;
-    
+
 }
 .hire-btn:hover {
     transition: all 0.5s ease-in-out;
@@ -265,7 +265,7 @@ html {
     height: 350px;
     border-radius: 50%;
     border: 2px solid black;
-    background-image: url(monkey-d-luffy-19-300x264.png);
+    background-image: url(assets/monkey-d-luffy-19-300x264.png);
     background-size:contain;
     background-repeat: no-repeat;
 }
@@ -425,7 +425,7 @@ html {
     top: 7px;
 }
 .hiphen-section-text-1 {
-    font-size: 18px; 
+    font-size: 18px;
     font-weight: 800;
 }
 .project-intro-1 {
@@ -501,28 +501,28 @@ html {
 }
 .card-img {
     margin-bottom: 20px;
-    background-image: url(t-t-t.png);
+    background-image: url(assets/t-t-t.png);
     width: 470px;
     height: 262px;
     background-size: cover ;
 }
 .card-img-2 {
     margin-bottom: 20px;
-    background-image: url(conqueror.png);
+    background-image: url(assets/conqueror.png);
     width: 470px;
     height: 262px;
     background-size: cover ;
 }
 .card-img-3 {
     margin-bottom: 20px;
-    background-image: url(zomato.png);
+    background-image: url(assets/zomato.png);
     width: 470px;
     height: 262px;
     background-size: cover ;
 }
 .card-img-4 {
     margin-bottom: 20px;
-    background-image: url(ibm.png);
+    background-image: url(assets/ibm.png);
     width: 470px;
     height: 262px;
     background-size: cover ;
@@ -869,7 +869,7 @@ html {
     top: 7px;
 }
 .hiphen-section-text-1 {
-    font-size: 18px; 
+    font-size: 18px;
     font-weight: 800;
 }
 .blog-intro-1 {
@@ -933,19 +933,19 @@ html {
 }
 .blog-card-1 .card-img {
     margin-bottom: 20px;
-    background-image: url(blog-1.png);
+    background-image: url(assets/blog-1.png);
     width: auto;
     background-size: cover ;
 }
 .blog-card-1 .ball{
     margin-bottom: 20px;
-    background-image: url(blog-2.png);
+    background-image: url(assets/blog-2.png);
     width: auto;
     background-size: cover ;
 }
 .blog-card-1 .ball1{
     margin-bottom: 20px;
-    background-image: url(blog-3.png);
+    background-image: url(assets/blog-3.png);
     width: auto;
     background-size: cover ;
 }
@@ -1782,7 +1782,7 @@ html {
     animation: slideInLeft 1s ease-out forwards;
 }
 .user img {
-    animation: slideInRight 1s ease-out 0.3s forwards; 
+    animation: slideInRight 1s ease-out 0.3s forwards;
     opacity: 0;
 }
 .nav-button {
@@ -1808,7 +1808,7 @@ html {
     box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.25);
 }
 .blog-card-1:hover {
-    transform: scale(1.05); 
+    transform: scale(1.05);
     box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.25);
 }
 .arw a{
